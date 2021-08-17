@@ -7,7 +7,7 @@ $t = $text['editor'];
 
 <html style="margin: 0" onmousedown="parent.ICEcoder.mouseDown = true; parent.ICEcoder.resetAutoLogoutTimer()" onmouseup="parent.ICEcoder.mouseDown = false; parent.ICEcoder.mouseDownInCM = false; parent.ICEcoder.resetAutoLogoutTimer(); if (!parent.ICEcoder.overCloseLink) {parent.ICEcoder.tabDragEnd()}" onmousemove="if (parent.ICEcoder) {parent.ICEcoder.getMouseXY(event, 'editor'); parent.ICEcoder.functionArgsTooltip(event, 'editor'); parent.ICEcoder.resetAutoLogoutTimer(); parent.ICEcoder.canResizeFilesW()}" ondrop="if (parent.ICEcoder) {parent.ICEcoder.getMouseXY(event, 'editor')}">
 <head>
-<title>ICEcoder <?php echo $ICEcoder["versionNo"];?> editor</title>
+<title>InstaWP <?php echo $ICEcoder["versionNo"];?> editor</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="assets/css/codemirror.css?microtime=<?php echo microtime(true);?>">
@@ -111,7 +111,7 @@ h2 {color: rgba(0,198,255,0.7)}
             "(" . $_SERVER['SERVER_SOFTWARE'] . ")";?><br><br>
 		<span class="heading"><?php echo $t['Root'];?></span><br>
 		<?php echo $docRoot;?><br><br>
-		<span class="heading"><?php echo $t['ICEcoder root'];?></span><br>
+		<span class="heading"><?php echo $t['root'];?></span><br>
 		<div id="iceRootDisplay"><?php echo "" !== $iceRoot ? $iceRoot : "[Default]";?></div><br><br>
 		<span class="heading"><?php echo $t['PHP version'];?></span><br>
 		<?php echo phpversion();?><br><br>
@@ -154,7 +154,7 @@ h2 {color: rgba(0,198,255,0.7)}
             <?php
         }
         ?>
-		<h2>ICEcoder</h2>
+		<h2>Version</h2>
 		<span class="heading"><?php echo $t['version'];?></span><br>
 		<?php
 		// If we have a .git dir, get the Git short commit hash to display as a link
@@ -165,10 +165,6 @@ h2 {color: rgba(0,198,255,0.7)}
 		}
 		echo $ICEcoder["versionNo"] . $gitCommitTextLink;
 		?><br><br>
-		<span class="heading"><?php echo $t['codemirror version'];?></span><br>
-		<script>
-		document.write(CodeMirror.version);
-		</script>
 		<br><br>
 	</div>
 
@@ -185,7 +181,7 @@ h2 {color: rgba(0,198,255,0.7)}
 		if (document.getElementById('serverDT')) {
 			document.getElementById('serverDT').innerHTML = [s[0], d + e, s[1], s[3], t.join(':') + p].join(' ');
 		}
-	}, 1000);
+	}, 100);
 	</script>
 </div>
 

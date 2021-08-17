@@ -39,7 +39,7 @@ $isMac = false !== strpos($_SERVER['HTTP_USER_AGENT'], "Macintosh") ? true : fal
 <!DOCTYPE html>
 <html onmousedown="ICEcoder.mouseDown = true; ICEcoder.resetAutoLogoutTimer();" onmouseup="ICEcoder.mouseDown = false; ICEcoder.resetAutoLogoutTimer(); ICEcoder.mouseDownInCM = false; if (!ICEcoder.overCloseLink) {ICEcoder.tabDragEnd()}" onmousemove="if ('undefined' !== typeof ICEcoder) {ICEcoder.getMouseXY(event, 'top'); ICEcoder.resetAutoLogoutTimer(); ICEcoder.canResizeFilesW()}" onmousewheel="ICEcoder.resetAutoLogoutTimer(); if (ICEcoder.getcMInstance() && !ICEcoder.getcMInstance().hasFocus() && !ICEcoder.getcMdiffInstance().hasFocus()) {event.wheelDelta > 0 ? ICEcoder.nextTab() : ICEcoder.previousTab();}">
 <head>
-<title>ICEcoder <?php echo $ICEcoder["versionNo"];?></title>
+<title>InstaWP Editor <?php echo $ICEcoder["versionNo"];?></title>
 <!--Updated via settings so must remain 1st stylesheet//-->
 <style>
 	#tabsBar.tabsBar .tab { font-size: <?php echo $ICEcoder["fontSize"];?>; }
@@ -47,6 +47,11 @@ $isMac = false !== strpos($_SERVER['HTTP_USER_AGENT'], "Macintosh") ? true : fal
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
+<style>
+#plugins, #accountsTab, #tools {
+	display: none;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="<?php echo $iceURLPath;?>/assets/css/resets.css?microtime=<?php echo microtime(true);?>">
 <link rel="stylesheet" type="text/css" href="<?php echo $iceURLPath;?>/assets/css/icecoder.css?microtime=<?php echo microtime(true);?>">
 <link rel="stylesheet" type="text/css" href="<?php echo $iceURLPath;?>/assets/css/file-type-icons.css?microtime=<?php echo microtime(true);?>">
@@ -274,20 +279,16 @@ if (true === $havePrettier && true === file_exists(dirname(__FILE__) . "/plugins
             <ul>
                 <li><a nohref onclick="ICEcoder.settingsScreen(false, 'general')">General</a></li>
                 <li><a nohref onclick="ICEcoder.settingsScreen(false, 'style')">Style</a></li>
-                <li><a nohref onclick="ICEcoder.settingsScreen(false, 'accounts')">Accounts</a></li>
-                <li><a nohref onclick="ICEcoder.settingsScreen(false, 'security')">Security</a></li>
-                <li><a nohref onclick="ICEcoder.pluginsManager()">Plugins</a></li>
+                <li style="display:none;"><a nohref onclick="ICEcoder.settingsScreen(false, 'accounts')">Accounts</a></li>
+                <li style="display:none;"><a nohref onclick="ICEcoder.settingsScreen(false, 'security')">Security</a></li>
+                <li style="display:none;"><a nohref onclick="ICEcoder.pluginsManager()">Plugins</a></li>
             </ul>
         </div>
 		<div id="optionsHelp" class="optionsList" onmouseover="ICEcoder.showHideFileNav('show', this.id)" onmouseout="ICEcoder.showHideFileNav('hide', this.id);ICEcoder.canShowFMNav = false">
 			<ul>
 				<li><a nohref onclick="ICEcoder.viewTutorial(false, 500)">Tutorial</a></li>
-				<li><a href="https://icecoder.net/usage" target="_blank">Usage</a></li>
-				<li><a href="https://icecoder.net/tips-tricks" target="_blank">Tips &amp; Tricks</a></li>
-				<li><a nohref onclick="ICEcoder.showManual('<?php echo $ICEcoder["versionNo"];?>')"><?php echo $t['Manual'];?></a></li>
 				<li><a nohref onClick="ICEcoder.helpScreen()"><?php echo $t['Shortcuts'];?></a></li>
 				<li><a nohref onclick="ICEcoder.searchForSelected()"><?php echo $t['Search for selected'];?></a></li>
-				<li><a href="https://icecoder.net" target="_blank">ICEcoder <?php echo $t['website'];?></a></li>
 			</ul>
 		</div>
 	</div>
