@@ -187,7 +187,7 @@ if (isset($_GET['otp']) && "login" === $setPWorLogin) {
         $otp = $_GET['otp'];
         $key = $_GET['key'];
         //include('otp.php');
-        if(!VerifyOTP("email", $otp, $key, file_get_contents("../../.secret"))) {
+        if(!VerifyOTP("email", $otp, $key, file_get_contents("../.secret"))) {
                 die('invalid otp');
         }
 
